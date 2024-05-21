@@ -21,29 +21,50 @@ navButton.addEventListener("click", function () {
   navBar.appendChild(divs);
 
   let HomeButton = document.createElement("a");
-  let AboutButton = document.createElement("a");
+  let ContactButton = document.createElement("a");
   let HowToButton = document.createElement("a");
   let TemplatesButton = document.createElement("a");
 
-  let links = [HomeButton, AboutButton, HowToButton, TemplatesButton];
+  let links = [HomeButton, ContactButton, HowToButton, TemplatesButton];
 
   for (let i = 0; i < links.length; i++) {
     links[i].classList.add("nav-link");
   }
 
   HomeButton.textContent = "Home";
-  HomeButton.href = "index.html";
-  AboutButton.textContent = "About";
-  AboutButton.href = "about.html";
+  ContactButton.textContent = "Contact";
   HowToButton.textContent = "How To";
-  HowToButton.href = "howto.html";
   TemplatesButton.textContent = "Your Templates";
-  TemplatesButton.href = "templates.html";
+
+  if(window.location.pathname.includes("index.html")) {
+  HomeButton.href = "index.html";
+  ContactButton.href = "contact.html";
+  HowToButton.href = "howto.html";
+  TemplatesButton.href = "./templates/template.html";
+
+    } else if(window.location.pathname.includes("template.html")) {
+    HomeButton.href = "../index.html";
+    ContactButton.href = "../contact/contact.html";
+    HowToButton.href = "../howto/howto.html";
+    TemplatesButton.href = "./template.html";
+    } else if(window.location.pathname.includes("contact.html")) {
+    HomeButton.href = "../index.html";
+    ContactButton.href = "./contact.html";
+    HowToButton.href = "../howto/howto.html";
+    TemplatesButton.href = "../templates/template.html";
+    } else if(window.location.pathname.includes("howto.html")) {
+    HomeButton.href = "../index.html";
+    ContactButton.href = "../contact/contact.html";
+    HowToButton.href = "./howto.html";
+    TemplatesButton.href = "../templates/template.html";
+    }
+
+        
 
   divs.appendChild(HomeButton);
-  divs.appendChild(AboutButton);
   divs.appendChild(HowToButton);
   divs.appendChild(TemplatesButton);
+  divs.appendChild(ContactButton);
 
     let closeIcon = document.createElement("i");
     closeIcon.classList.add("fas");
@@ -60,7 +81,5 @@ navButton.addEventListener("click", function () {
       navBar.classList.add("nav");
     });
 
-  HomeButton.addEventListener("click", function () {
-    window.location.href = "index.html";
-  });
 });
+
