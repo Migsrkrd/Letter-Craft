@@ -131,13 +131,6 @@ function findAttributes(text, name) {
     return result;
   }
 
-  for (let i = 0; i < attributes.length; i++) {
-    template = template.replace(
-      attributes[i],
-      "${" + attributes[i].slice(1, -1) + "}"
-    );
-  }
-
   // Construct the result object correctly using the name parameter
   result = {
     name: name,
