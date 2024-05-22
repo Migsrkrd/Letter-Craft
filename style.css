@@ -17,6 +17,7 @@ body{
 #nav-button{
     font-size: 30px;
     font-weight: bold;
+    transition: ease-in-out 0.3s;
 }
 
 #nav-button:hover{
@@ -37,16 +38,26 @@ body{
     background: var(--primary-color);
     transition: width ease-in-out 0.3s;
     max-width: 100%;
+    position: fixed;
+    z-index: 1;
 }
 main{
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 95%;
-    justify-content: center;
+    width: 85%;
     align-items: center;
     height: 100%;
-    margin: 50px;
+    margin-left: 10%;
+}
+
+#mainSection{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    width: 85%;
+    height: 100%;
+    margin: 5% 5% 5% 10%;
 }
 
 .nav-show{
@@ -59,6 +70,8 @@ main{
     background: var(--secondary-color);
     height: 100%;
     transition: ease-in-out 0.5s;
+    position: fixed;
+    z-index: 1;
 }
 
 .nav-open{
@@ -68,7 +81,9 @@ main{
     height: 100%;
     width: 20%;
     background: var(--secondary-color);
-    overflow: auto;
+    transition: ease-in-out 0.3s;
+    position: fixed;
+    z-index: 1;
 }
 
 #close-icon{
@@ -107,8 +122,9 @@ main{
 }
 
 .active{
-    background: red;
+    background: var(--primary-color);
     border-radius: 5px;
+    text-decoration: underline;
 }
 
 .home-image{
@@ -130,3 +146,158 @@ section{
 section p{
     margin: 20px;
 }
+
+#instructions{
+    font-size: larger;
+    max-width: 70%;
+}
+
+#actions{
+    background: var(--quaternary-color);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: 40px;
+}
+
+#top-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border: none;
+    width: 95%;
+    margin-left: 5%;
+}
+
+#actions button{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background: var(--primary-color);
+    color: white;
+}
+
+#actions button:hover{
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: ease-in-out 0.15s;
+    color: black;
+}
+
+#div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#submit, #clear{
+    font-size: 17px;
+    padding: 4px 10px 4px 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background: var(--primary-color);
+    color: white;
+}
+
+#submit:hover, #clear:hover{
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: ease-in-out 0.15s;
+    color: black;
+}
+
+#textArea{
+    font-size: larger;
+    padding: 10px;
+    margin: 10px;
+}
+
+#templateName{
+    font-size:medium;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+}
+
+#textArea:focus{
+    border: 2px solid var(--primary-color);
+    outline: none;
+}
+
+#storage{
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: var(--tertiary-color);
+    height: 30px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    background-color: var(--primary-color);
+    text-align: center;
+    line-height: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.activePage{
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: ease-in-out 0.15s;
+    color: black;
+}
+
+#templateDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% 5% 5% 10%;
+    width: 100%;
+    overflow: auto;
+}
+
+.card{
+    border: 5px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
+    width: 150px;
+    height: 250px;
+    background: var(--tertiary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover{
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: ease-in-out 0.15s;
+}
+
+.templateImage{
+    height: 120px;
+    width: 300px;
+    overflow: hidden;
+}
+
+
+
