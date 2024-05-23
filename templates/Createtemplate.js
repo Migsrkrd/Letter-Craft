@@ -33,6 +33,10 @@ function removeCreateDiv() {
 //function to create the div for creating a new template
 function createDiv() {
   removeTemplates();
+  if(document.getElementById("infoDiv")) {
+    document.getElementById("infoDiv").remove();
+  }
+
   let instructions = document.createElement("p");
   instructions.setAttribute("id", "instructions");
   instructions.innerHTML =
@@ -98,6 +102,8 @@ function createDiv() {
     let result = findAttributes(textArea.value, templateName.value);
 
     localStorage.setItem("data", JSON.stringify(currentData.concat(result)));
+
+    window.location.reload();
   });
 
   clearBtn.addEventListener("click", function () {

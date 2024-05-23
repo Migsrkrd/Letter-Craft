@@ -143,6 +143,12 @@ section{
     border-radius: 25px;
 }
 
+.emptyImage{
+    width: 30%;
+    filter: hue-rotate(-15deg);
+    border-radius: 50px;
+}
+
 section p{
     margin: 20px;
 }
@@ -206,7 +212,27 @@ section p{
     color: white;
 }
 
-#submit:hover, #clear:hover{
+#download-pdf, #copy, #edit, #delete{
+    font-size: 17px;
+    padding: 4px 10px 4px 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background: var(--primary-color);
+    color: white;
+    width: fit-content;
+
+}
+
+#div2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+#submit:hover, #clear:hover, #download-pdf:hover, #copy:hover, #edit:hover, #delete:hover{
     cursor: pointer;
     background: var(--secondary-color);
     transition: ease-in-out 0.15s;
@@ -214,9 +240,10 @@ section p{
 }
 
 #textArea{
-    font-size: larger;
-    padding: 10px;
-    margin: 10px;
+    font-size: 17px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 25px;
 }
 
 #templateName{
@@ -227,7 +254,7 @@ section p{
 }
 
 #textArea:focus{
-    border: 2px solid var(--primary-color);
+    border: 5px solid var(--primary-color);
     outline: none;
 }
 
@@ -266,8 +293,8 @@ section p{
 #templateDiv{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
     width: 100%;
     margin-top: 5%;
     overflow-x: auto;
@@ -327,6 +354,62 @@ section p{
 #templateDisplayDiv{
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.blankCard{
+    border: 5px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
+    width: 150px;
+    height: 250px;
+    background: var(--quaternary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blankCard i{
+    color: var(--primary-color);
+    font-size: 100px;
+    font-weight: bolder;
+}
+
+.attribute, #templateName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    font-size: 1.15em;
+    max-width: max-content;
+}
+
+#infoDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    font-size: larger;
+}
+
+.firstTwo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 
