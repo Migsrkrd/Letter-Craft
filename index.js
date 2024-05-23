@@ -86,3 +86,22 @@ navButton.addEventListener("click", function () {
     navBar.classList.add("nav");
   });
 });
+
+if(window.location.pathname.includes("index.html")) {
+
+  let templateBox = document.getElementById("templateBox");
+  templateBox.addEventListener("click", function () {
+    window.location.href = "./templates/template.html";
+  });
+  
+  let contactBox = document.getElementById("contactBox");
+  contactBox.addEventListener("click", function () {
+    window.location.href = "./contact/contact.html";
+  });
+  
+  let howToBox = document.getElementById("howToBox");
+  howToBox.addEventListener("click", function () {
+    window.location.href = "./howto/howto.html";
+  });
+}
+

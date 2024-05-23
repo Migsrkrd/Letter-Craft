@@ -9,9 +9,7 @@ let yourTemplatesBtn = document.getElementById("your-templates");
 if (!localStorage.getItem("usedNumbers")) {
   console.log("usedNumbers not found in local storage, creating new array");
   localStorage.setItem("usedNumbers", JSON.stringify([]));
-} else {
-  console.log("usedNumbers found in local storage");
-}
+} 
 
 if (window.location.pathname === "/templates/template.html") {
 }

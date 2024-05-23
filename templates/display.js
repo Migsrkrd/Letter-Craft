@@ -23,7 +23,7 @@ function displayTemplates(plugIn) {
   emptyStatement.style.textAlign = "center";
   emptyStatement.style.fontSize = "1.5rem";
   emptyStatement.style.margin = "13px";
-  emptyStatement.innerHTML = `You have no templates. Click the create button to create a new template. <br> If you are new to this app, click the how to button in the sidebar to learn how to use it.<br>Once you have created a template, it will appear here.<br> To view your templates in the future, click the 'Your Templates' button in the sidebar. <br> Happy templating!`;
+  emptyStatement.innerHTML = `You have no templates. Click the create button to create a new template. <br> If you are new to this app, click the how to button in the sidebar to learn how to use it.<br>Once you have created a template, it will appear here.<br> To view your templates in the future, click the 'Your Templates' button in the sidebar or at the top right corner of this page. <br> Happy templating!`;
 
 
   div.appendChild(emptyStatement);
@@ -73,7 +73,9 @@ function displayTemplates(plugIn) {
       div.appendChild(card);
 
       //event listener for when a template is clicked
-      card.addEventListener("click", function () {
+      card.addEventListener("click", function (e) {
+        console.log(e.target)
+
         if (document.getElementById("templateDisplayDiv")) {
           document.getElementById("templateDisplayDiv").remove();
         }
@@ -84,16 +86,19 @@ function displayTemplates(plugIn) {
 
         let div = document.createElement("div");
         div.setAttribute("id", "templateDisplayDiv");
-        main.appendChild(div);
         let textArea = document.createElement("textarea");
         textArea.value = `${data[i].template}`;
-        console.log(data[i].template);
+
+        let attributeDiv = document.createElement("div");
+        attributeDiv.setAttribute("id", "attributeDiv");
 
         for (let j = 0; j < data[i].attributes.length; j++) {
           if (data[i].attributes === "none") {
             let attributeElement = document.createElement("p");
             attributeElement.innerHTML = "No attributes";
-            div.appendChild(attributeElement);
+            attributeDiv.appendChild(attributeElement);
+            div.appendChild(attributeDiv);
+            main.appendChild(div);
             break;
           }
           let attribute = data[i].attributes[j];
@@ -102,6 +107,15 @@ function displayTemplates(plugIn) {
           attributeElement.setAttribute("placeholder", attribute);
           attributeElement.setAttribute("id", attribute);
           attributeElement.classList.add("attribute");
+
+          //if length of attribute is greater than 10, set the size of the input to the length of the attribute
+          if (attribute.length > 10) {
+            attributeElement.setAttribute("size", attribute.length);
+          } else {
+            attributeElement.setAttribute("size", "10");
+          }
+
+          attributeDiv.appendChild(attributeElement);
 
           //event listener for when an attribute is changed
           attributeElement.addEventListener("change", function () {
@@ -127,7 +141,8 @@ function displayTemplates(plugIn) {
             console.log(newText);
           });
 
-          div.appendChild(attributeElement);
+          div.appendChild(attributeDiv);
+          main.appendChild(div);
         }
 
         textArea.setAttribute("cols", "100");
