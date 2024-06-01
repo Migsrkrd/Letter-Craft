@@ -44,7 +44,7 @@ navButton.addEventListener("click", function () {
     HomeButton.href = "index.html";
     HomeButton.classList.add("active");
     ContactButton.href = "contact.html";
-    HowToButton.href = "howto.html";
+    HowToButton.href = "howto/howto.html";
     TemplatesButton.href = "./templates/template.html";
   } else if (window.location.pathname.includes("template.html")) {
     HomeButton.href = "../index.html";

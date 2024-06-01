@@ -185,7 +185,10 @@ function displayTemplates(plugIn) {
           }
           const { jsPDF } = window.jspdf;
           const pdf = new jsPDF();
-          pdf.text(textArea.value, 10, 10);
+          pdf.setFont("times", "normal");
+          pdf.setFontSize(12);
+          const textLines = pdf.splitTextToSize(textArea.value, 180);
+          pdf.text(textLines, 10, 20);
           pdf.save(`${data[i].name}.pdf`);
         });
 
