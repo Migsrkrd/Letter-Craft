@@ -1,6 +1,8 @@
 const navButton = document.getElementById("nav-button");
 const navBar = document.getElementById("nav");
 
+console.log("current pathname", window.location.pathname);
+
 navBar.addEventListener("mouseover", function () {
   navBar.classList.remove("nav");
   navBar.classList.add("nav-show");
