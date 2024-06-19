@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  console.log("DOM Content Loaded");
   
   const navButton = document.getElementById("nav-button");
   const navBar = document.getElementById("nav");
