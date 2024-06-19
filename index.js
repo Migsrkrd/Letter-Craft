@@ -43,27 +43,27 @@ navButton.addEventListener("click", function () {
   if (window.location.pathname.includes("index.html")) {
     HomeButton.href = "index.html";
     HomeButton.classList.add("active");
-    ContactButton.href = "./contact.html";
-    HowToButton.href = "./howto.html";
-    TemplatesButton.href = "./template.html";
+    ContactButton.href = "./contact/contact.html";
+    HowToButton.href = "howto/howto.html";
+    TemplatesButton.href = "./templates/template.html";
   } else if (window.location.pathname.includes("template.html")) {
-    HomeButton.href = "./index.html";
-    ContactButton.href = "./contact.html";
-    HowToButton.href = "./howto.html";
+    HomeButton.href = "../index.html";
+    ContactButton.href = "../contact/contact.html";
+    HowToButton.href = "../howto/howto.html";
     TemplatesButton.href = "./template.html";
     TemplatesButton.classList.add("active");
   } else if (window.location.pathname.includes("contact.html")) {
-    HomeButton.href = "./index.html";
+    HomeButton.href = "../index.html";
     ContactButton.href = "./contact.html";
     ContactButton.classList.add("active");
-    HowToButton.href = "./howto.html";
-    TemplatesButton.href = "./template.html";
+    HowToButton.href = "../howto/howto.html";
+    TemplatesButton.href = "../templates/template.html";
   } else if (window.location.pathname.includes("howto.html")) {
-    HomeButton.href = "./index.html";
-    ContactButton.href = "./contact.html";
+    HomeButton.href = "../index.html";
+    ContactButton.href = "../contact/contact.html";
     HowToButton.href = "./howto.html";
     HowToButton.classList.add("active");
-    TemplatesButton.href = "./template.html";
+    TemplatesButton.href = "../templates/template.html";
   }
 
   divs.appendChild(HomeButton);
@@ -91,19 +91,19 @@ if(window.location.pathname.includes("index.html")) {
 
   let templateBox = document.getElementById("templateBox");
   templateBox.addEventListener("click", function () {
-    window.location.href = "./template.html";
+    window.location.href = "./templates/template.html";
     console.log("Template Box Clicked");
   });
   
   let contactBox = document.getElementById("contactBox");
   contactBox.addEventListener("click", function () {
-    window.location.href = "./contact.html";
+    window.location.href = "./contact/contact.html";
     console.log("Contact Box Clicked");
   });
   
   let howToBox = document.getElementById("howToBox");
   howToBox.addEventListener("click", function () {
-    window.location.href = "./howto.html";
+    window.location.href = "./howto/howto.html";
     console.log("How To Box Clicked");
   });
 }
