@@ -40,7 +40,7 @@ navButton.addEventListener("click", function () {
   HowToButton.textContent = "How To";
   TemplatesButton.textContent = "Your Templates";
 
-  if (window.location.pathname.includes("index.html")) {
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "https://migsrkrd.github.io/Letter-Template/") {
     HomeButton.href = "index.html";
     HomeButton.classList.add("active");
     ContactButton.href = "./contact/contact.html";
