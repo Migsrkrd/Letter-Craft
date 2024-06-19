@@ -8,14 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
   navBar.addEventListener("mouseover", function () {
     navBar.classList.remove("nav");
     navBar.classList.add("nav-show");
+    console.log("Mouse Over");
   });
   
   navBar.addEventListener("mouseout", function () {
     navBar.classList.remove("nav-show");
     navBar.classList.add("nav");
+    console.log("Mouse Out");
   });
   
   navButton.addEventListener("click", function () {
+    console.log("Nav Button Clicked");
     navBar.removeChild(navButton);
     navBar.classList.remove("nav");
     navBar.classList.add("nav-open");
