@@ -40,9 +40,9 @@ navButton.addEventListener("click", function () {
   HowToButton.textContent = "How To";
   TemplatesButton.textContent = "Your Templates";
 
-  //youll notice below that when the page is deployed on github pages as https://migsrkrd.github.io/Letter-Template/ the pathname is different than when it is deployed on a local server. This is why I have to check for both cases. The deployed version on github pages has the pathname as /Letter-Template/ and the local server has the pathname as /index.html. This is why I have to check for both cases.
+  //youll notice below that when the page is deployed on github pages as https://migsrkrd.github.io/Letter-Template/ the pathname is different than when it is deployed on a local server. This is why I have to check for both cases. The deployed version on github pages has the pathname as /Letter-Template/ and the local server has the pathname as /index.html. This is why I have to check for both cases. The if statement should look like this
 
-  if (window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/") {
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "") {
     console.log("Home Page");
     HomeButton.href = "index.html";
     HomeButton.classList.add("active");
