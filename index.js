@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
 
   console.log("DOM Content Loaded");
   
@@ -40,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
     for (let i = 0; i < links.length; i++) {
       links[i].classList.add("nav-link");
+      links[i].addEventListener("click", function () {
+        console.log(`${links[i].textContent} Clicked`);
+      });
+        
     }
   
     HomeButton.textContent = "Home";
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     //youll notice below that when the page is deployed on github pages as https://migsrkrd.github.io/Letter-Template/ the pathname is different than when it is deployed on a local server. This is why I have to check for both cases. The deployed version on github pages has the pathname as /Letter-Template/ and the local server has the pathname as /index.html. This is why I have to check for both cases. The if statement should look like this
   
-    if (window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/index.html") {
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/") {
       console.log("Home Page");
       HomeButton.href = "index.html";
       HomeButton.classList.add("active");
@@ -117,5 +120,4 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("How To Box Clicked");
     });
   }
-});
 
