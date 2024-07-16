@@ -90,7 +90,7 @@
     });
   });
   
-  if(window.location.pathname.includes("index.html")) {
+  if(window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/") {
   
     let templateBox = document.getElementById("templateBox");
     templateBox.addEventListener("click", function () {
