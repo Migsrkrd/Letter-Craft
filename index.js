@@ -90,8 +90,6 @@
     });
   });
   
-  if(window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/") {
-  
     let templateBox = document.getElementById("templateBox");
     templateBox.addEventListener("click", function () {
       window.location.href = "./templates/template.html";
@@ -109,5 +107,4 @@
       window.location.href = "./howto/howto.html";
       console.log("How To Box Clicked");
     });
-  }
 
