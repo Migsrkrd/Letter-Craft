@@ -4,20 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Letter Craft</title>
-    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/f78c6605c9.js"
       crossorigin="anonymous"
     ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav id="nav" class="nav">
       <i class="fa-solid fa-bars" id="nav-button"></i>
     </nav>
     <main>
+      <div class="switchDiv">
+        <label class="form-check-label light-mode" for="flexSwitchCheckChecked"><i class="fa-solid fa-moon"></i></label>
+        <div class="form-check form-switch">
+          <input class="form-check-input target-switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
+          <label class="form-check-label dark-mode" for="flexSwitchCheckChecked"><i class="fa-solid fa-sun"></i></label>
+        </div>
+      </div>
       <h1>Welcome to Letter Craft</h1>
       <section>
-        <!-- <img class="home-image" src="https://cdn.dribbble.com/users/1951182/screenshots/4560823/media/95b3b4ce09230e0ee6e74bec2b7b2c13.gif?resize=400x0" alt="cartoon of a person typing on their laptop"> -->
         <p>
           Letter Craft is a simple and fun way to create and share your own
           custom letters. You can use Letter Craft to create message templates
@@ -32,6 +39,7 @@
           <br />
           Happy crafting!
         </p>
+        <p id="hiddenRenderTag">Hidden Element for Home Page rendering</p>
       </section>
       <div class="button-card-div">
         <div class="button-card" id="templateBox">
@@ -47,6 +55,7 @@
         <p>How To</p>
       </div>
     </main>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

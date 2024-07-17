@@ -1,3 +1,4 @@
+
 function displayTemplates(plugIn) {
   let data = JSON.parse(localStorage.getItem("data"));
 
@@ -60,16 +61,20 @@ function displayTemplates(plugIn) {
   } else {
     for (let i = 0; i < data.length; i++) {
       let card = document.createElement("div");
-      card.setAttribute("class", "card");
+      card.setAttribute("class", "cards");
       let h2 = document.createElement("h2");
       h2.innerHTML = data[i].name;
-      let img = document.createElement("img");
-      img.setAttribute("src", data[i].photo);
-      img.setAttribute("alt", "template image");
-      img.setAttribute("class", "templateImage");
+      let icon = document.createElement("i");
+      if(localStorage.getItem("theme") === "light") {
+        icon.setAttribute("class", data[i].photo);
+      } else if(localStorage.getItem("theme") === "dark") {
+        icon.setAttribute("class", data[i].photo);
+        icon.classList.remove("templateIcon");
+        icon.classList.add("darkModeIcons");
+      }
 
       card.appendChild(h2);
-      card.appendChild(img);
+      card.appendChild(icon);
       div.appendChild(card);
 
       //event listener for when a template is clicked
@@ -309,8 +314,8 @@ function displayTemplates(plugIn) {
           window.location.reload();
         });
 
-        div.appendChild(textArea);
         div.appendChild(div2);
+        div.appendChild(textArea);
 
       });
     }

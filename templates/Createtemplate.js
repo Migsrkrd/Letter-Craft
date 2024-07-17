@@ -120,7 +120,6 @@ function findAttributes(text, name) {
   //make sure attributes arent repeated
   let uniqueAttributes = [...new Set(attributes)];
 
-  let randomNum = Math.floor(Math.random() * 10) + 1;
   let photoId = nonRepeatRandom(JSON.parse(localStorage.getItem("usedNumbers")));
 
   let template = text;
@@ -175,3 +174,4 @@ yourTemplatesBtn.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", updateProgressBar);
 
 document.addEventListener("DOMContentLoaded", displayTemplates);
+

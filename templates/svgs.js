@@ -1,14 +1,14 @@
 const svgSrc = {
-    1: "../assets/book.svg",
-    2: "../assets/chat.svg",
-    3: "../assets/laptop.svg",
-    4: "../assets/newspaper.svg",
-    5: "../assets/openletter.svg",
-    6: "../assets/paperplane.svg",
-    7: "../assets/quil.svg",
-    8: "../assets/stapler.svg",
-    9: "../assets/truck.svg",
-    10: "../assets/wifi.svg",
+    1: "fa-solid fa-pen templateIcon",
+    2: "fa-solid fa-computer templateIcon",
+    3: "fa-solid fa-envelope-open-text templateIcon",
+    4: "fa-solid fa-headset templateIcon",
+    5: "fa-solid fa-person-chalkboard templateIcon",
+    6: "fa-solid fa-envelopes-bulk templateIcon",
+    7: "fa-solid fa-book-open-reader templateIcon",
+    8: "fa-solid fa-paper-plane templateIcon",
+    9: "fa-solid fa-paperclip templateIcon",
+    10: "fa-solid fa-box-archive templateIcon",
 }
 
 

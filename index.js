@@ -1,6 +1,6 @@
+  import { switchButton } from "./switch.js";
 
-  console.log("DOM Content Loaded");
-  
+
   const navButton = document.getElementById("nav-button");
   const navBar = document.getElementById("nav");
   
@@ -39,7 +39,7 @@
     let links = [HomeButton, ContactButton, HowToButton, TemplatesButton];
   
     for (let i = 0; i < links.length; i++) {
-      links[i].classList.add("nav-link");
+      links[i].classList.add("nav-link1");
     }
   
     if (window.location.pathname.includes("index.html") || window.location.pathname === "/Letter-Template/") {
@@ -90,6 +90,7 @@
     });
   });
   
+    if (document.getElementById("hiddenRenderTag")) {
     let templateBox = document.getElementById("templateBox");
     templateBox.addEventListener("click", function () {
       window.location.href = "./templates/template.html";
@@ -107,4 +108,4 @@
       window.location.href = "./howto/howto.html";
       console.log("How To Box Clicked");
     });
-
+  }
