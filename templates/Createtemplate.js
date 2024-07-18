@@ -175,3 +175,5 @@ document.addEventListener("DOMContentLoaded", updateProgressBar);
 
 document.addEventListener("DOMContentLoaded", displayTemplates);
 
+
+

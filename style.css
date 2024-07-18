@@ -250,6 +250,9 @@ section p{
     background-color: var(--tertiary-color);
     color: var(--text-color);
     border: 3px solid var(--primary-color);
+    min-height: 300px;
+    min-width: 600px;
+    max-width: 100%;
 
 }
 
@@ -532,6 +535,12 @@ section p{
 .darkModeIcons{
     color: var(--quaternary-color);
     font-size: 100px;
+}
+
+.attributeHighlight{
+    background: var(--primary-color);
+    color: var(--quaternary-color);
+    font-weight: bold;
 }
 
 

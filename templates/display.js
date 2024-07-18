@@ -1,4 +1,4 @@
-
+//function for displaying templates and their attributes
 function displayTemplates(plugIn) {
   let data = JSON.parse(localStorage.getItem("data"));
 
@@ -8,6 +8,7 @@ function displayTemplates(plugIn) {
   main.appendChild(div);
 
   if (!data || data.length === 0) {
+    //if there are no templates, display a message to the user
   div.style.border = "none";
 
   if(document.getElementById("infoDiv")) {
@@ -59,6 +60,7 @@ function displayTemplates(plugIn) {
 
     return;
   } else {
+    //if there are templates, display them
     for (let i = 0; i < data.length; i++) {
       let card = document.createElement("div");
       card.setAttribute("class", "cards");
@@ -77,9 +79,8 @@ function displayTemplates(plugIn) {
       card.appendChild(icon);
       div.appendChild(card);
 
-      //event listener for when a template is clicked
+      //event listener for when a template is clicked, this will display the template and its attributes as inputs and textareas
       card.addEventListener("click", function (e) {
-        console.log(e.target)
 
         if (document.getElementById("templateDisplayDiv")) {
           document.getElementById("templateDisplayDiv").remove();
@@ -91,12 +92,32 @@ function displayTemplates(plugIn) {
 
         let div = document.createElement("div");
         div.setAttribute("id", "templateDisplayDiv");
-        let textArea = document.createElement("textarea");
-        textArea.value = `${data[i].template}`;
+        let textArea = document.createElement("div");
+        textArea.setAttribute("contenteditable", "true");
+        let formattedTemplate = data[i].template.replace(/\n/g, "<br>");
+        //now replace tab values with 4 spaces
+        formattedTemplate = formattedTemplate.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+        textArea.innerHTML = formattedTemplate;
+
+        let attributes = data[i].attributes;
+
+        if (textArea.innerHTML.match(/\[(.*?)\]/g)) {
+          //apply the attributeHighlight class to the attributes in the template
+          let highlightedText = textArea.innerHTML.replace(
+            /\[(.*?)\]/g,
+            '<span class="attributeHighlight">$&</span>'
+          );
+          textArea.innerHTML = highlightedText;
+        }
+
+
+        
+
 
         let attributeDiv = document.createElement("div");
         attributeDiv.setAttribute("id", "attributeDiv");
 
+        //if there are no attributes, display a message to the user
         for (let j = 0; j < data[i].attributes.length; j++) {
           if (data[i].attributes === "none") {
             let attributeElement = document.createElement("p");
@@ -106,6 +127,7 @@ function displayTemplates(plugIn) {
             main.appendChild(div);
             break;
           }
+          //create an input for each attribute
           let attribute = data[i].attributes[j];
           let attributeElement = document.createElement("input");
           attributeElement.setAttribute("type", "text");
@@ -125,7 +147,7 @@ function displayTemplates(plugIn) {
           //event listener for when an attribute is changed
           attributeElement.addEventListener("change", function () {
             let match = `${attribute}`;
-            let text = textArea.value;
+            let text = textArea.innerHTML;
             let newText = text;
             let index = newText.indexOf(match);
 
@@ -141,7 +163,7 @@ function displayTemplates(plugIn) {
               );
             }
 
-            textArea.value = newText;
+            textArea.innerHTML = newText;
             attribute = attributeElement.value;
             console.log(newText);
           });
@@ -178,7 +200,7 @@ function displayTemplates(plugIn) {
         div2.appendChild(deleteBtn);
 
         pdfBtn.addEventListener("click", function () {
-          let ifSquareBracket = textArea.value.includes("[" || "]");
+          let ifSquareBracket = textArea.innerHTML.includes("[" || "]");
           if (ifSquareBracket) {
             //confirm with the user that they want to download the pdf
             let confirmDownload = confirm(
@@ -192,13 +214,22 @@ function displayTemplates(plugIn) {
           const pdf = new jsPDF();
           pdf.setFont("times", "normal");
           pdf.setFontSize(12);
-          const textLines = pdf.splitTextToSize(textArea.value, 180);
+          let formattedTemplate = textArea.innerHTML.replace(/<br>/g, "\n");
+          formattedTemplate = formattedTemplate.replace(/&nbsp;&nbsp;&nbsp;&nbsp;/g, "\t");
+          formattedTemplate = formattedTemplate.replace(/<span class="attributeHighlight">/g, "");
+          formattedTemplate = formattedTemplate.replace(/<\/span>/g, "");
+          const textLines = pdf.splitTextToSize(formattedTemplate, 180);
           pdf.text(textLines, 10, 20);
           pdf.save(`${data[i].name}.pdf`);
         });
 
         copyBtn.addEventListener("click", function () {
-          let ifSquareBracket = textArea.value.includes("[" || "]");
+          let formattedTemplate = textArea.innerHTML.replace(/<br>/g, "\n");
+          formattedTemplate = formattedTemplate.replace(/&nbsp;&nbsp;&nbsp;&nbsp;/g, "\t");
+          formattedTemplate = formattedTemplate.replace(/<span class="attributeHighlight">/g, "");
+          formattedTemplate = formattedTemplate.replace(/<\/span>/g, "");
+
+          let ifSquareBracket = formattedTemplate.includes("[" || "]");
           if (ifSquareBracket) {
             //confirm with the user that they want to download the pdf
             let confirmDownload = confirm(
@@ -208,8 +239,10 @@ function displayTemplates(plugIn) {
               return;
             }
           }
-          textArea.select();
-          document.execCommand("copy");
+          //copy the formatted template to the clipboard
+          navigator.clipboard.writeText(formattedTemplate);
+          alert("Template copied to clipboard!");
+          
         });
 
         editBtn.addEventListener("click", function () {
