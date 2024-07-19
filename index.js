@@ -78,6 +78,7 @@
     closeIcon.classList.add("fas");
     closeIcon.classList.add("fa-times");
     closeIcon.id = "close-icon";
+    
     navBar.appendChild(closeIcon);
   
     let close = document.getElementById("close-icon");

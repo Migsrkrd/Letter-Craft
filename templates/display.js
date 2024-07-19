@@ -178,19 +178,19 @@ function displayTemplates(plugIn) {
 
         let copyBtn = document.createElement("button");
         copyBtn.setAttribute("id", "copy");
-        copyBtn.innerHTML = "Copy";
+        copyBtn.innerHTML = `<i class="fa-solid fa-copy"></i>`;
 
         let pdfBtn = document.createElement("button");
         pdfBtn.setAttribute("id", "download-pdf");
-        pdfBtn.innerHTML = "Download PDF";
+        pdfBtn.innerHTML = `<i class="fa-solid fa-file-pdf"></i>`;
 
         let editBtn = document.createElement("button");
         editBtn.setAttribute("id", "edit");
-        editBtn.innerHTML = "Edit Template";
+        editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 
         let deleteBtn = document.createElement("button");
         deleteBtn.setAttribute("id", "delete");
-        deleteBtn.innerHTML = "Delete Template";
+        deleteBtn.innerHTML = `<i class="fa-solid fa-delete-left"></i>`;
 
         let div2 = document.createElement("div");
         div2.setAttribute("id", "div2");
@@ -242,7 +242,7 @@ function displayTemplates(plugIn) {
           //copy the formatted template to the clipboard
           navigator.clipboard.writeText(formattedTemplate);
           alert("Template copied to clipboard!");
-          
+
         });
 
         editBtn.addEventListener("click", function () {

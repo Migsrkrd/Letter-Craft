@@ -17,6 +17,21 @@ body{
     color: var(--text-color);
 }
 
+button{
+    border: none;
+    background: none;
+    color: var(--text-color);
+}
+
+button:active{
+    cursor: pointer;
+    transform: translateX(2px) translateY(2px);
+}
+
+button:hover{
+    box-shadow: var(--text-color) 0px 0px 5px 0px;
+}
+
 #nav-button{
     font-size: 30px;
     font-weight: bold;
@@ -33,6 +48,7 @@ body{
 
 .nav{
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     height: 100%;
     width: 5%;
@@ -49,6 +65,7 @@ main{
     flex-direction: column;
     height: 100%;
     width: 85%;
+    max-width: 85%;
     align-items: center;
     height: 100%;
     margin-left: 10%;
@@ -59,6 +76,7 @@ main{
     flex-direction: column;
     align-items:center;
     width: 85%;
+    max-width: 85%;
     margin: 5% 5% 5% 10%;
 }
 
@@ -71,7 +89,7 @@ main{
     align-items: center;
     background: var(--secondary-color);
     height: 100%;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.3s;
     position: fixed;
     z-index: 1;
 }
@@ -104,11 +122,10 @@ main{
 .nav-link1{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     margin: 40px;
     color: var(--text-color);
-    font-size: 30px;
+    font-size: 20px;
     text-align: start;
     font-weight: bold;
     padding: 5px;
@@ -216,13 +233,14 @@ section p{
 
 #download-pdf, #copy, #edit, #delete{
     font-size: 17px;
-    padding: 4px 10px 4px 10px;
+    padding: 2px 5px 2px 5px;
     margin: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     background: var(--primary-color);
     color: var(--quaternary-color);
     width: fit-content;
     font-weight: bold;
+    font-size: 30px;
 
 }
 
@@ -237,10 +255,11 @@ section p{
 
 #submit:hover, #clear:hover, #download-pdf:hover, #copy:hover, #edit:hover, #delete:hover{
     cursor: pointer;
-    background: var(--secondary-color);
     transition: ease-in-out 0.15s;
     color: var(--text-color);
+    background-color: var(--secondary-color);
 }
+
 
 #textArea{
     font-size: 17px;
@@ -253,7 +272,6 @@ section p{
     min-height: 300px;
     min-width: 600px;
     max-width: 100%;
-
 }
 
 #templateName{
@@ -266,6 +284,10 @@ section p{
 #textArea:focus{
     border: 5px solid var(--primary-color);
     outline: none;
+}
+
+#textArea::placeholder{
+    color: var(--text-color);
 }
 
 #storage{
@@ -303,16 +325,16 @@ section p{
 #templateDiv{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     width: 100%;
     margin-top: 5%;
     margin-bottom: 5%;
     border: 5px solid var(--primary-color);
     border-radius: 25px;
     padding: 20px;
-    min-height: fit-content
+    min-height: 380px;
+    overflow-x: scroll;
+
 }
 
 ::-webkit-scrollbar {
@@ -362,6 +384,12 @@ section p{
     cursor: pointer;
     background: var(--secondary-color);
     transition: ease-in-out 0.15s;
+    width: inherit;
+}
+
+.cards:active{
+    transform: translateX(2px) translateY(2px);
+    box-shadow: none;
 }
 
 #templateDisplayDiv{
@@ -392,21 +420,33 @@ section p{
     font-weight: bolder;
 }
 
-.attribute, #templateName{
+input{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
-    padding: 10px;
+    padding: 7px;
     border: 2px solid var(--primary-color);
     border-radius: 15px;
-    font-size: 1.15em;
     background-color: var(--tertiary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease
+}
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 30px var(--tertiary-color) inset;
+    -webkit-text-fill-color: var(--text-color);
+}
+
+input::placeholder{
     color: var(--text-color);
 }
 
-.attribute::placeholder{
+input:hover{
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: ease-in-out 0.15s;
     color: var(--text-color);
 }
 
