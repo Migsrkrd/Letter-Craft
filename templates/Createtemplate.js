@@ -20,6 +20,8 @@ updateProgressBar();
 displayTemplates(updateProgressBar);
 removeTemplates();
 
+
+
 //function to remove the create template div if it exists
 function removeCreateDiv() {
   let div = document.getElementById("div");
@@ -164,6 +166,7 @@ createbtn.addEventListener("click", function () {
   createDiv();
 });
 
+
 yourTemplatesBtn.addEventListener("click", function () {
   removeCreateDiv();
   removeTemplates();
@@ -174,6 +177,8 @@ yourTemplatesBtn.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", updateProgressBar);
 
 document.addEventListener("DOMContentLoaded", displayTemplates);
+
+
 
 
 

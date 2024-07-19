@@ -9,28 +9,27 @@ function displayTemplates(plugIn) {
 
   if (!data || data.length === 0) {
     //if there are no templates, display a message to the user
-  div.style.border = "none";
+    div.style.border = "none";
 
-  if(document.getElementById("infoDiv")) {
-    document.getElementById("infoDiv").remove();
-  }
+    if (document.getElementById("infoDiv")) {
+      document.getElementById("infoDiv").remove();
+    }
 
-  let backgroundImage = document.createElement("img");
-  backgroundImage.setAttribute("src", "../assets/empty.svg");
-  backgroundImage.setAttribute("alt", "empty templates");
-  backgroundImage.classList.add("emptyImage");
-  div.appendChild(backgroundImage);
+    let backgroundImage = document.createElement("img");
+    backgroundImage.setAttribute("src", "../assets/empty.svg");
+    backgroundImage.setAttribute("alt", "empty templates");
+    backgroundImage.classList.add("emptyImage");
+    div.appendChild(backgroundImage);
 
-  let emptyStatement = document.createElement("p");
-  emptyStatement.style.textAlign = "center";
-  emptyStatement.style.fontSize = "1.5rem";
-  emptyStatement.style.margin = "13px";
-  emptyStatement.innerHTML = `You have no templates. Click the create button to create a new template. <br> If you are new to this app, click the how to button in the sidebar to learn how to use it.<br>Once you have created a template, it will appear here.<br> To view your templates in the future, click the 'Your Templates' button in the sidebar or at the top right corner of this page. <br> Happy templating!`;
+    let emptyStatement = document.createElement("p");
+    emptyStatement.style.textAlign = "center";
+    emptyStatement.style.fontSize = "1.5rem";
+    emptyStatement.style.margin = "13px";
+    emptyStatement.innerHTML = `You have no templates. Click the create button to create a new template. <br> If you are new to this app, click the how to button in the sidebar to learn how to use it.<br>Once you have created a template, it will appear here.<br> To view your templates in the future, click the 'Your Templates' button in the sidebar or at the top right corner of this page. <br> Happy templating!`;
 
+    div.appendChild(emptyStatement);
 
-  div.appendChild(emptyStatement);
-
-  let testHead = `<div class="firstTwo">
+    let testHead = `<div class="firstTwo">
   <div style="margin: 20px;">
     <h2>Tips for Creating Effective Templates:</h2>
     <ul style="text-align: left; display: inline-block;">
@@ -51,8 +50,8 @@ function displayTemplates(plugIn) {
     <div style="margin: 20px;">
       <h2>Need Help?</h2>
       <p>Contact our support team at <a href="../contact/contact.html"</a> if you have any questions.</p>
-    </div>`
-  
+    </div>`;
+
     let infoDiv = document.createElement("div");
     infoDiv.innerHTML = testHead;
     infoDiv.setAttribute("id", "infoDiv");
@@ -67,9 +66,9 @@ function displayTemplates(plugIn) {
       let h2 = document.createElement("h2");
       h2.innerHTML = data[i].name;
       let icon = document.createElement("i");
-      if(localStorage.getItem("theme") === "light") {
+      if (localStorage.getItem("theme") === "light") {
         icon.setAttribute("class", data[i].photo);
-      } else if(localStorage.getItem("theme") === "dark") {
+      } else if (localStorage.getItem("theme") === "dark") {
         icon.setAttribute("class", data[i].photo);
         icon.classList.remove("templateIcon");
         icon.classList.add("darkModeIcons");
@@ -81,7 +80,6 @@ function displayTemplates(plugIn) {
 
       //event listener for when a template is clicked, this will display the template and its attributes as inputs and textareas
       card.addEventListener("click", function (e) {
-
         if (document.getElementById("templateDisplayDiv")) {
           document.getElementById("templateDisplayDiv").remove();
         }
@@ -96,7 +94,10 @@ function displayTemplates(plugIn) {
         textArea.setAttribute("contenteditable", "true");
         let formattedTemplate = data[i].template.replace(/\n/g, "<br>");
         //now replace tab values with 4 spaces
-        formattedTemplate = formattedTemplate.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+        formattedTemplate = formattedTemplate.replace(
+          /\t/g,
+          "&nbsp;&nbsp;&nbsp;&nbsp;"
+        );
         textArea.innerHTML = formattedTemplate;
 
         let attributes = data[i].attributes;
@@ -109,10 +110,6 @@ function displayTemplates(plugIn) {
           );
           textArea.innerHTML = highlightedText;
         }
-
-
-        
-
 
         let attributeDiv = document.createElement("div");
         attributeDiv.setAttribute("id", "attributeDiv");
@@ -152,7 +149,7 @@ function displayTemplates(plugIn) {
 
           //event listener for when an attribute is changed
           attributeElement.addEventListener("change", function () {
-            if(attributeElement.value === "") {
+            if (attributeElement.value === "") {
               attributeElement.value = data[i].attributes[j];
             }
             let match = `${attribute}`;
@@ -164,7 +161,7 @@ function displayTemplates(plugIn) {
             while (index !== -1) {
               newText =
                 newText.substring(0, index) +
-                (attributeElement.value) +
+                attributeElement.value +
                 newText.substring(index + match.length);
               index = newText.indexOf(
                 match,
@@ -208,6 +205,34 @@ function displayTemplates(plugIn) {
         div2.appendChild(editBtn);
         div2.appendChild(deleteBtn);
 
+        function addToolTip(button, text) {
+          button.addEventListener("mouseover", function (event) {
+              let tooltip = document.createElement("div");
+              tooltip.setAttribute("id", "tooltip");
+              tooltip.innerHTML = text;
+              document.body.appendChild(tooltip);
+              let buttonPositionX = button.getBoundingClientRect().left;
+              let buttonPositionY = button.getBoundingClientRect().top;
+              let ButtonWidth = button.offsetWidth;
+              let tooltipWidth = tooltip.offsetWidth;
+              let tooltipHeight = tooltip.offsetHeight;
+
+              tooltip.style.left = buttonPositionX + ButtonWidth / 2 - tooltipWidth / 2 + "px";
+              tooltip.style.top = buttonPositionY - tooltipHeight - 10 + "px";
+          });
+
+          button.addEventListener("mouseout", function () {
+            if (document.getElementById("tooltip"))
+              document.getElementById("tooltip").remove();
+          });
+      }
+
+      addToolTip(copyBtn, "Copy Text");
+      addToolTip(pdfBtn, "Download as PDF");
+      addToolTip(editBtn, "Edit Template");
+      addToolTip(deleteBtn, "Delete Template");
+        
+
         pdfBtn.addEventListener("click", function () {
           let ifSquareBracket = textArea.innerHTML.includes("[" || "]");
           if (ifSquareBracket) {
@@ -224,8 +249,14 @@ function displayTemplates(plugIn) {
           pdf.setFont("times", "normal");
           pdf.setFontSize(12);
           let formattedTemplate = textArea.innerHTML.replace(/<br>/g, "\n");
-          formattedTemplate = formattedTemplate.replace(/&nbsp;&nbsp;&nbsp;&nbsp;/g, "\t");
-          formattedTemplate = formattedTemplate.replace(/<span class="attributeHighlight">/g, "");
+          formattedTemplate = formattedTemplate.replace(
+            /&nbsp;&nbsp;&nbsp;&nbsp;/g,
+            "\t"
+          );
+          formattedTemplate = formattedTemplate.replace(
+            /<span class="attributeHighlight">/g,
+            ""
+          );
           formattedTemplate = formattedTemplate.replace(/<\/span>/g, "");
           const textLines = pdf.splitTextToSize(formattedTemplate, 180);
           pdf.text(textLines, 10, 20);
@@ -234,8 +265,14 @@ function displayTemplates(plugIn) {
 
         copyBtn.addEventListener("click", function () {
           let formattedTemplate = textArea.innerHTML.replace(/<br>/g, "\n");
-          formattedTemplate = formattedTemplate.replace(/&nbsp;&nbsp;&nbsp;&nbsp;/g, "\t");
-          formattedTemplate = formattedTemplate.replace(/<span class="attributeHighlight">/g, "");
+          formattedTemplate = formattedTemplate.replace(
+            /&nbsp;&nbsp;&nbsp;&nbsp;/g,
+            "\t"
+          );
+          formattedTemplate = formattedTemplate.replace(
+            /<span class="attributeHighlight">/g,
+            ""
+          );
           formattedTemplate = formattedTemplate.replace(/<\/span>/g, "");
 
           let ifSquareBracket = formattedTemplate.includes("[" || "]");
@@ -251,7 +288,6 @@ function displayTemplates(plugIn) {
           //copy the formatted template to the clipboard
           navigator.clipboard.writeText(formattedTemplate);
           alert("Template copied to clipboard!");
-
         });
 
         editBtn.addEventListener("click", function () {
@@ -291,11 +327,13 @@ function displayTemplates(plugIn) {
               e.preventDefault();
               let start = this.selectionStart;
               let end = this.selectionEnd;
-        
+
               // set textarea value to: text before caret + tab + text after caret
               this.value =
-                this.value.substring(0, start) + "\t" + this.value.substring(end);
-        
+                this.value.substring(0, start) +
+                "\t" +
+                this.value.substring(end);
+
               // put caret at right position again
               this.selectionStart = this.selectionEnd = start + 1;
             }
@@ -305,13 +343,13 @@ function displayTemplates(plugIn) {
             let newName = document.getElementById("templateName").value;
             let newTemplate = document.getElementById("textArea").value;
             let oldPhoto = data[i].photo;
-  
+
             let result = {};
             let regex = /\[(.*?)\]/g;
             let attributes = newTemplate.match(regex);
             //make sure attributes arent repeated
             let uniqueAttributes = [...new Set(attributes)];
-  
+
             if (!attributes) {
               result = {
                 name: newName,
@@ -319,14 +357,14 @@ function displayTemplates(plugIn) {
                 attributes: "none",
                 photo: oldPhoto,
               };
-              
+
               data[i] = result;
               localStorage.setItem("data", JSON.stringify(data));
               alert("Template updated successfully!");
               window.location.reload();
               return;
             }
-  
+
             // Construct the result object correctly using the name parameter
             result = {
               name: newName,
@@ -334,9 +372,9 @@ function displayTemplates(plugIn) {
               attributes: uniqueAttributes,
               photo: oldPhoto,
             };
-  
+
             data[i] = result;
-  
+
             localStorage.setItem("data", JSON.stringify(data));
             alert("Template updated successfully!");
             window.location.reload();
@@ -358,14 +396,18 @@ function displayTemplates(plugIn) {
 
         div.appendChild(div2);
         div.appendChild(textArea);
-
       });
     }
   }
 
-  if (data.length < 5 && data !== null && data !== undefined && data.length > 0) {
+  if (
+    data.length < 5 &&
+    data !== null &&
+    data !== undefined &&
+    data.length > 0
+  ) {
     let blankCard = document.createElement("div");
-    console.log(data)
+    console.log(data);
     blankCard.setAttribute("class", "blankCard");
     let h2 = document.createElement("i");
     h2.classList.add("fas");

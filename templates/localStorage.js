@@ -21,7 +21,23 @@ function getLocalStorageUsagePercentage() {
     const progressBar = document.getElementById("progress-bar");
     const percentage = getLocalStorageUsagePercentage();
     progressBar.style.width = `${percentage}%`;
-    progressBar.textContent = `${percentage}%`;
+
+    if (percentage <= 5){
+      let containerElement = document.getElementById("progress-container");
+      if (document.getElementById("rightSidePercentage")) {
+        document.getElementById("rightSidePercentage").remove();
+      }
+      let rightSidePercentage = document.createElement("p");
+      rightSidePercentage.setAttribute("id", "rightSidePercentage");
+      rightSidePercentage.innerHTML = `${percentage}%`;
+      containerElement.appendChild(rightSidePercentage);
+    } else {
+      let rightSidePercentage = document.getElementById("rightSidePercentage");
+      if (rightSidePercentage) {
+        rightSidePercentage.remove();
+        progressBar.textContent = `${percentage}%`;
+      }
+    }
   }
 
   export { getLocalStorageUsagePercentage, updateProgressBar };
