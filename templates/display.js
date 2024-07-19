@@ -144,8 +144,17 @@ function displayTemplates(plugIn) {
 
           attributeDiv.appendChild(attributeElement);
 
+          attributeElement.addEventListener("click", function () {
+            if (attributeElement.value === data[i].attributes[j]) {
+              attributeElement.value = "";
+            }
+          });
+
           //event listener for when an attribute is changed
           attributeElement.addEventListener("change", function () {
+            if(attributeElement.value === "") {
+              attributeElement.value = data[i].attributes[j];
+            }
             let match = `${attribute}`;
             let text = textArea.innerHTML;
             let newText = text;

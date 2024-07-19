@@ -19,7 +19,6 @@ body{
 
 button{
     border: none;
-    background: none;
     color: var(--text-color);
 }
 
@@ -507,6 +506,8 @@ input:hover{
     background: var(--secondary-color);
     transition: ease-in-out 0.15s;
     color: var(--text-color);
+    scale: 1.1;
+    border: 3px solid var(--primary-color);
 }
 
 #attributeDiv{
