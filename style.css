@@ -1,10 +1,4 @@
-:root{
-    --text-color: #1c3440;
-    --primary-color: #008DDA;
-    --secondary-color: #41C9E2;
-    --tertiary-color: #ACE2E1;
-    --quaternary-color: #F7EEDD;
-}
+
 
 body{
     display: flex;
@@ -31,33 +25,39 @@ button:hover{
     box-shadow: var(--text-color) 0px 0px 5px 0px;
 }
 
-#nav-button{
+#nav-button, #close{
     font-size: 30px;
     font-weight: bold;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.15s;
 }
 
-#nav-button:hover{
+#nav-button:hover, #close:hover{
     cursor: pointer;
     border-radius: 5px;
-    padding: 5px;
-    box-shadow: 0px 0px 5px 0px black;
+    scale: 1.2;
+    color: var(--quaternary-color);
+    transform: rotate(360deg);
+}
 
+#nav-button:active, #close:active{
+    transform: translateX(3px) translateY(3px);
 }
 
 .nav{
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: column;
     height: 100%;
-    width: 5%;
+    width: fit-content;
     justify-content: center;
     align-items: center;
     background: var(--primary-color);
-    transition: width ease-in-out 0.3s;
-    max-width: 100%;
+    transition: ease-in-out 0.5s;
+    max-width: 50%;
     position: fixed;
     z-index: 1;
+    padding-right: 20px;
+    padding-left: 0px;
+    left: -220px;
 }
 main{
     display: flex;
@@ -79,30 +79,9 @@ main{
     margin: 5% 5% 5% 10%;
 }
 
-.nav-show{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 5%;
-    justify-content: center;
-    align-items: center;
-    background: var(--secondary-color);
-    height: 100%;
-    transition: ease-in-out 0.3s;
-    position: fixed;
-    z-index: 1;
-}
-
-.nav-open{
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    height: 100%;
-    width: 20%;
-    background: var(--secondary-color);
-    transition: ease-in-out 0.3s;
-    position: fixed;
-    z-index: 1;
+.howToMain{
+    width: 60%;
+    margin-left: 20%;
 }
 
 #close-icon{
@@ -122,13 +101,14 @@ main{
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin: 40px;
+    margin-left: 10px;
     color: var(--text-color);
     font-size: 20px;
     text-align: start;
     font-weight: bold;
-    padding: 5px;
+    padding: 15px 20px 15px 5px;
     text-decoration: none;
+    margin-right: 10px;
 }
 
 .nav-link1:hover{
@@ -137,6 +117,11 @@ main{
     background: var(--tertiary-color);
     transition: ease-in-out 0.15s;
     border-radius: 5px;
+}
+
+.nav-link1:active{
+    transform: translateX(2px) translateY(2px);
+    background-color: var(--secondary-color);
 }
 
 .active{
@@ -526,6 +511,7 @@ input:hover{
     height: 200px;
     font-size: 20px;
     text-align: center;
+    transition: ease-in-out 0.15s;
 }
 
 .button-card i{
@@ -565,6 +551,7 @@ input:hover{
 
 .how-to-section h2{
     width: 97%;
+    margin-top: 30px;
 }
 
 .ToC{
@@ -586,19 +573,23 @@ input:hover{
     align-items: center;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 50%;
     margin: 5px;
     font-size: larger;
+    transform: translateX(50%);
+}
+
+.switchDiv i{
+    color: var(--quaternary-color);
 }
 
 .light-mode, .dark-mode{
     margin-right: 9px;
-    color: var(--primary-color);
 }
 
 .templateIcon{
     font-size: 100px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 #hiddenRenderTag{
@@ -606,7 +597,7 @@ input:hover{
 }
 
 .darkModeIcons{
-    color: var(--quaternary-color);
+    color: var(--text-color);
     font-size: 100px;
 }
 

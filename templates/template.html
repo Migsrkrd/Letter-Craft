@@ -15,16 +15,25 @@
   </head>
   <body>
     <nav id="nav" class="nav">
-      <i class="fa-solid fa-bars" id="nav-button"></i>
-    </nav>
-    <main id="mainSection">
       <div class="switchDiv">
         <label class="form-check-label light-mode" for="flexSwitchCheckChecked"><i class="fa-solid fa-moon"></i></label>
         <div class="form-check form-switch">
-          <input class="form-check-input target-switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+          <input class="form-check-input target-switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
           <label class="form-check-label dark-mode" for="flexSwitchCheckChecked"><i class="fa-solid fa-sun"></i></label>
         </div>
       </div>
+      <div>
+        <a href="../index.html" class="nav-link1">Home</a>
+        <a href="./templates/template.html" class="nav-link1">Template Dashboard</a>
+        <a href="../contact/contact.html" class="nav-link1">Contact</a>
+        <a href="../howto/howto.html" class="nav-link1">Documentation</a>
+        <a href="../resources/resources.html" class="nav-link1">Resources</a>
+      </div>
+      <i class="fas fa-times" id="close"></i>
+      <i class="fa-solid fa-bars" id="nav-button"></i>
+    </nav>
+    <main id="mainSection">
+      
     <h1>Your Templates</h1>
       <section id="top-section">
         <div id="storage">
@@ -36,8 +45,8 @@
             </div>
         </div>
         <div id="actions">
-            <button id="create">create</button>
-            <button id="your-templates">Your Templates</button>
+            <button id="create">New</button>
+            <button id="your-templates">View</button>
         </div>
     </section>
     </main>
