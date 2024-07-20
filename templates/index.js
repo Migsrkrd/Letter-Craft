@@ -1,6 +1,6 @@
-import {svgSrc, nonRepeatRandom} from "./svgs.js";
-import { getLocalStorageUsagePercentage, updateProgressBar } from "./localStorage.js";
-import { displayTemplates, removeTemplates } from "./display.js";
+import {svgSrc, nonRepeatRandom} from "./helpers/svgs.js";
+import { getLocalStorageUsagePercentage, updateProgressBar } from "./helpers/localStorage.js";
+import { displayTemplates, removeTemplates } from "./helpers/display.js";
 
 let createbtn = document.getElementById("create");
 let main = document.getElementById("mainSection");
