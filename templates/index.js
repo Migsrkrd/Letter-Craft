@@ -11,9 +11,6 @@ if (!localStorage.getItem("usedNumbers")) {
   localStorage.setItem("usedNumbers", JSON.stringify([]));
 } 
 
-if (window.location.pathname === "/templates/template.html") {
-}
-
 getLocalStorageUsagePercentage();
 updateProgressBar();
 

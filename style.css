@@ -147,9 +147,8 @@ section{
 }
 
 .emptyImage{
-    width: 30%;
-    filter: hue-rotate(-15deg);
-    border-radius: 50px;
+    font-size: 300px;
+    color: var(--primary-color);
 }
 
 section p{

@@ -8,8 +8,8 @@ export function emptyTemplates(mainElement, divElement) {
       document.getElementById("infoDiv").remove();
     }
 
-    let backgroundImage = document.createElement("img");
-    backgroundImage.setAttribute("src", "../assets/empty.svg");
+    let backgroundImage = document.createElement("i");
+    backgroundImage.setAttribute("class", "fa-solid fa-comment");
     backgroundImage.setAttribute("alt", "empty templates");
     backgroundImage.classList.add("emptyImage");
     div.appendChild(backgroundImage);
