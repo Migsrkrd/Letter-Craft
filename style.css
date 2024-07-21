@@ -397,7 +397,7 @@ section p{
     cursor: pointer;
     background: var(--secondary-color);
     transition: ease-in-out 0.15s;
-    width: inherit;
+    width: fit-content;
 }
 
 .cards:active{
