@@ -16,7 +16,7 @@ function applyTheme(theme) {
       div.removeChild(div.firstChild);
     }
     let lightLogo = document.createElement("img");
-    if (window.location.pathname === "/" || window.location.pathname === "/Letter-Craft/") {
+    if (window.location.pathname === "/" || window.location.pathname === "/Letter-Craft/" || window.location.pathname === "/Letter-Craft/index.html") {
       lightLogo.src = "./assets/light.png";
     } else {
       lightLogo.src = "../assets/light.png";
@@ -34,7 +34,7 @@ function applyTheme(theme) {
     }
     //if the page is home page, create the dark logo accordingly, otherwise, add a ../ to the path
     let darkLogo = document.createElement("img");
-    if (window.location.pathname === "/" || window.location.pathname === "/Letter-Craft/") {
+    if (window.location.pathname === "/" || window.location.pathname === "/Letter-Craft/" || window.location.pathname === "/Letter-Craft/index.html") {
       darkLogo.src = "./assets/dark.png";
     } else {
       darkLogo.src = "../assets/dark.png";
