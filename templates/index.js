@@ -11,6 +11,11 @@ if (!localStorage.getItem("usedNumbers")) {
   localStorage.setItem("usedNumbers", JSON.stringify([]));
 } 
 
+if (!localStorage.getItem("data")) {
+  console.log("data not found in local storage, creating new array");
+  localStorage.setItem("data", JSON.stringify([]));
+}
+
 getLocalStorageUsagePercentage();
 updateProgressBar();
 
