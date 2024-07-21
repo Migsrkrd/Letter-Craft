@@ -1,4 +1,4 @@
-import {svgSrc, nonRepeatRandom} from "./helpers/svgs.js";
+import { textAreaListener, submitListener } from "./helpers/textAreaListener.js";
 import { getLocalStorageUsagePercentage, updateProgressBar } from "./helpers/localStorage.js";
 import { displayTemplates, removeTemplates } from "./helpers/display.js";
 
@@ -53,7 +53,7 @@ function createDiv() {
   submit.innerHTML = "Submit";
   let clearBtn = document.createElement("button");
   clearBtn.setAttribute("id", "clear");
-  clearBtn.innerHTML = "Clear";
+  clearBtn.innerHTML = `<i class="fa-solid fa-arrows-rotate"></i>`;
   let div = document.createElement("div");
   div.setAttribute("id", "div");
   div.appendChild(instructions);
@@ -63,93 +63,22 @@ function createDiv() {
   div.appendChild(clearBtn);
   main.appendChild(div);
 
-  //create a function for, if the textarea is on the page, make sure that pressing tab will insert a tab instead of moving to the next element
+  //function for located in ./helper/textAreaListener.js
+  textAreaListener(textArea);
 
-  textArea.addEventListener("keydown", function (e) {
-    if (e.key === "Tab") {
-      e.preventDefault();
-      let start = this.selectionStart;
-      let end = this.selectionEnd;
+  //function located in ./helper/textAreaListener.js
+  submitListener(submit, textArea, templateName);
 
-      // set textarea value to: text before caret + tab + text after caret
-      this.value =
-        this.value.substring(0, start) + "\t" + this.value.substring(end);
-
-      // put caret at right position again
-      this.selectionStart = this.selectionEnd = start + 1;
-    }
-  });
-
-  submit.addEventListener("click", function () {
-    if (textArea.value === "" || templateName.value === "") {
-      alert("Please enter a template name and text before submitting.");
-      return;
-    }
-    confirm("Are you sure you want to submit?");
-    if (!confirm) {
-      return;
-    }
-    let currentData = localStorage.getItem("data");
-    if (!currentData) {
-      currentData = [];
-    } else {
-      currentData = JSON.parse(currentData);
-    }
-
-    let result = findAttributes(textArea.value, templateName.value);
-
-    localStorage.setItem("data", JSON.stringify(currentData.concat(result)));
-
-    window.location.reload();
-  });
-
+  //event listener for the clear button
   clearBtn.addEventListener("click", function () {
     textArea.value = "";
     templateName.value = "";
-
-    window.location.reload();
   });
-}
-
-//function to find attributes in the text area
-function findAttributes(text, name) {
-  let result = {};
-  let regex = /\[(.*?)\]/g;
-  let attributes = text.match(regex);
-  //make sure attributes arent repeated
-  let uniqueAttributes = [...new Set(attributes)];
-
-  let photoId = nonRepeatRandom(JSON.parse(localStorage.getItem("usedNumbers")));
-
-  let template = text;
-
-  if (!attributes) {
-    result = {
-      name: name,
-      template: template,
-      attributes: "none",
-      photo: svgSrc[photoId],
-    };
-    return result;
-  }
-
-  // Construct the result object correctly using the name parameter
-  result = {
-    name: name,
-    template: template,
-    attributes: uniqueAttributes,
-    photo: svgSrc[photoId],
-  };
-
-  return result;
 }
 
 //event listener for the create button
 createbtn.addEventListener("click", function () {
   if (document.getElementById("div")) {
-    //ask user if they want to leave the page, if they do their work will be lost
-    //if they confirm, remove the div and create a new one
-    //if they cancel, do nothing
     if (
       confirm(
         "Are you sure you want to leave this page? Your work will be lost."
@@ -174,8 +103,3 @@ yourTemplatesBtn.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", updateProgressBar);
 
 document.addEventListener("DOMContentLoaded", displayTemplates);
-
-
-
-
-

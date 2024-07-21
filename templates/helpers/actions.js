@@ -163,4 +163,6 @@ function deleteButton(data, i){
       window.location.reload();
 }
 
+
+
 export {pdfButton, copyButton, submitButton, editButton, deleteButton};

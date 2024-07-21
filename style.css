@@ -80,8 +80,7 @@ main{
 }
 
 .howToMain{
-    width: 60%;
-    margin-left: 20%;
+    width: 100%;
 }
 
 #close-icon{
@@ -606,4 +605,64 @@ input:hover{
     font-weight: bold;
 }
 
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border: none;
+    border-top: var(--secondary-color) 3px solid;
+    border-bottom: var(--secondary-color) 3px solid;
+    border-radius: 0px;
+    width: 620px;
+}
 
+.contactForm input:focus{
+    background-color: var(--tertiary-color);
+}
+
+.contactWork{
+    margin: 20px;
+}
+
+.contactName{
+    width: 300px;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+}
+
+.contactEmail{
+    width: 400px;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+}
+
+.contactSubject{
+    width: 500px;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+}
+
+.contactMessage{
+    width: 600px;
+    height: 200px;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid var(--primary-color);
+}
+
+#logo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+#logo:hover{
+    cursor: pointer;
+    transition: ease-in-out 0.15s;
+    scale: 1.1;
+
+}

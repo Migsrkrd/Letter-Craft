@@ -37,3 +37,10 @@ if (document.getElementById("hiddenRenderTag")) {
     console.log("How To Box Clicked");
   });
 }
+
+let homeButton = document.getElementById("logo");
+
+homeButton.addEventListener("click", function () {
+  window.location.href = "/";
+  console.log("Home Button Clicked");
+});
