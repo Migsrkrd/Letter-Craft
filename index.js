@@ -41,5 +41,9 @@ if (document.getElementById("hiddenRenderTag")) {
 let homeButton = document.getElementById("logo");
 
 homeButton.addEventListener("click", function () {
-  window.location.href = "/";
+  if (window.location.pathname.includes("/Letter-Craft/") || window.location.pathname.includes("/Letter-Craft/index.html")) {
+    window.location.href = "/Letter-Craft/index.html";
+  } else {
+    window.location.href = "/index.html";
+  }
 });
