@@ -41,8 +41,8 @@ if (document.getElementById("hiddenRenderTag")) {
 let homeButton = document.getElementById("logo");
 
 homeButton.addEventListener("click", function () {
-  if (window.location.pathname.includes("/Letter-Craft/")) {
-    window.location.href = "/Letter-Craft/index.html";
+  if (window.location.hostname === "migsrkrd.github.io") {
+    window.location.href = "/Letter-Craft/";
   } else {
     window.location.href = "/index.html";
   }
