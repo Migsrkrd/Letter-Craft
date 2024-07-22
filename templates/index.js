@@ -66,7 +66,8 @@ function createDiv() {
   div.appendChild(textArea);
   div.appendChild(submit);
   div.appendChild(clearBtn);
-  main.appendChild(div);
+  //append div to main section but before the footer
+  main.insertBefore(div, document.getElementById("footer"));
 
   //function for located in ./helper/textAreaListener.js
   textAreaListener(textArea);

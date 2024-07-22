@@ -85,6 +85,6 @@ export function cardEventListener(data, i, main){
         deleteButton(data, i);
       });
 
-      div.appendChild(div2);
       div.appendChild(textArea);
+      div.appendChild(div2);
 }

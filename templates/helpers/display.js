@@ -8,7 +8,7 @@ function displayTemplates(plugIn) {
   let div = document.createElement("div");
   div.setAttribute("id", "templateDiv");
   let main = document.getElementById("mainSection");
-  main.appendChild(div);
+  main.insertBefore(div, document.getElementById("footer"));
 
   if (!data || data.length === 0) {
     //if there are no templates, display a message to the user

@@ -48,7 +48,7 @@ export function emptyTemplates(mainElement, divElement) {
     let infoDiv = document.createElement("div");
     infoDiv.innerHTML = testHead;
     infoDiv.setAttribute("id", "infoDiv");
-    main.appendChild(infoDiv);
+    main.insertBefore(infoDiv, document.getElementById("footer"));
 
     return;
 }

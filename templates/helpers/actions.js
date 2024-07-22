@@ -126,7 +126,7 @@ function editButton(data, i, main){
     div.appendChild(templateName);
     div.appendChild(textArea);
     div.appendChild(submit);
-    main.appendChild(div);
+    main.insertBefore(div, document.getElementById("footer"));
 
     textArea.addEventListener("keydown", function (e) {
       if (e.key === "Tab") {

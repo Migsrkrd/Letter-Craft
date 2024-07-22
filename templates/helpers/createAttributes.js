@@ -5,7 +5,8 @@ export function createAttributes(data, i, attributeDiv, div, main, textArea) {
           attributeElement.innerHTML = "No attributes";
           attributeDiv.appendChild(attributeElement);
           div.appendChild(attributeDiv);
-          main.appendChild(div);
+          //append div to main but before footer
+          main.insertBefore(div, document.getElementById("footer"));
           break;
         }
         //create an input for each attribute
@@ -58,6 +59,6 @@ export function createAttributes(data, i, attributeDiv, div, main, textArea) {
         });
 
         div.appendChild(attributeDiv);
-        main.appendChild(div);
+        main.insertBefore(div, document.getElementById("footer"));
       }
 }

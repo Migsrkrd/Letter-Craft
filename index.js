@@ -36,6 +36,12 @@ if (document.getElementById("hiddenRenderTag")) {
     window.location.href = "./howto/howto.html";
     console.log("How To Box Clicked");
   });
+
+  let resourceBox = document.getElementById("resourceBox");
+  resourceBox.addEventListener("click", function () {
+    window.location.href = "./resources/resources.html";
+    console.log("Resource Box Clicked");
+  });
 }
 
 let homeButton = document.getElementById("logo");

@@ -3,19 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Letter Craft</title>
-    <script
-      src="https://kit.fontawesome.com/f78c6605c9.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>About Letter Craft</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/f78c6605c9.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
     <nav id="nav" class="nav">
@@ -38,63 +37,48 @@
       <div>
         <a href="../index.html" class="nav-link1">Home</a>
         <a href="../templates/template.html" class="nav-link1">Template Dashboard</a>
-        <a href="./contact.html" class="nav-link1">Contact</a>
+        <a href="../contact/contact.html" class="nav-link1">Contact</a>
         <a href="../howto/howto.html" class="nav-link1">Documentation</a>
         <a href="../resources/resources.html" class="nav-link1">Resources</a>
-        <a href="../about/about.html" class="nav-link1">About</a>
+        <a href="./about.html" class="nav-link1">About</a>
         <a href="../policy/policy.html" class="nav-link1">Privacy & Policy</a>
       </div>
       <i class="fas fa-times" id="close"></i>
       <i class="fa-solid fa-bars" id="nav-button"></i>
     </nav>
-    <main>
+    <main id="mainSection">
       <div id="logo"></div>
-      <div class="contactForm">
-        <form id="contactForm" class="contactWork">
-          <div>
-            <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              class="contactName"
-              id="name"
-              name="name"
-              required
-            />
-          </div>
-          <div>
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              class="contactEmail"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
-          <div>
-            <label for="subject" class="form-label">Subject</label>
-            <input
-              type="text"
-              class="contactSubject"
-              id="subject"
-              name="subject"
-              required
-            />
-          </div>
-          <div>
-            <label for="message" class="form-label">Message</label>
-            <textarea
-              class="contactMessage"
-              id="message"
-              name="message"
-              rows="4"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" id="submit">Send</button>
-        </form>
-      </div>
-      <p>Send an Email to the Developer for bug reports, recommendations, and more.</p>
+      <section class="about-section">
+        <h1>About Letter Craft</h1>
+        <p>
+          Welcome to Letter Craft, a user-friendly platform designed to help you create and share custom letter templates with ease. Whether you're drafting emails, cover letters, social media posts, or any other type of communication, Letter Craft provides the tools you need to make your message clear and effective.
+        </p>
+        <p>
+          <strong>Our Mission:</strong> Letter Craft was born out of the necessity for a streamlined, efficient way to manage job applications and other professional communications. Our mission is to provide users with an intuitive platform that simplifies the process of creating, saving, and sharing personalized message templates.
+        </p>
+        <p>
+          <strong>Why Choose Letter Craft?</strong>
+          <ul>
+            <li>Easy-to-use interface for creating and managing templates</li>
+            <li>Integration with AI programs like ChatGPT, WriteSonic, and Rytr for enhanced template creation</li>
+            <li>Access to a dashboard where you can view, edit, and share your templates</li>
+            <li>Comprehensive resources and documentation to help you get the most out of the platform</li>
+          </ul>
+        </p>
+        <p>
+          <strong>About the Creator:</strong>
+          <br />
+          Letter Craft was created by an individual who understands the challenges of job searching and professional communication. Drawing from personal experience, the creator designed this platform to be a valuable tool for anyone looking to improve their messaging efficiency and effectiveness.
+        </p>
+        <p>
+          <strong>Contact Us:</strong>
+          <br />
+          If you have any questions, suggestions, or feedback, please feel free to reach out through our <a href="../contact/contact.html">Contact</a> page. We'd love to hear from you!
+        </p>
+        <p>
+          Thank you for choosing Letter Craft. Happy crafting!
+        </p>
+      </section>
       <footer class="footer">
         <div class="container">
           <div class="row">
@@ -107,10 +91,10 @@
               <ul class="list-unstyled quicklinkslinks">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../templates/template.html">Template Dashboard</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
                 <li><a href="../howto/howto.html">Documentation</a></li>
                 <li><a href="../resources/resources.html">Resources</a></li>
-                <li><a href="../about/about.html">About</a></li>
+                <li><a href="./about.html">About</a></li>
                 <li><a href="../policy/policy.html">Privacy & ToS</a></li>
               </ul>
             </div>
@@ -123,7 +107,6 @@
         </div>
       </footer>
     </main>
-    <script src="index.js"></script>
     <script type="module" src="../index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
